@@ -11,7 +11,7 @@ import time
 # Enable Headless Mode
 
 options = webdriver.ChromeOptions()
-options.add_argument("--headless")        # Run without UI
+options.add_argument("--headless")      
 options.add_argument("--disable-gpu")
 options.add_argument("--window-size=1920,1080")
 options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36")
@@ -34,7 +34,7 @@ driver.get("https://www.imdb.com/chart/top/")
 
 time.sleep(10)
 
-# Debug: Check page title and print available selectors
+#  Check page title and print available selectors
 print("Page title:", driver.title)
 print("Page URL:", driver.current_url)
 
@@ -59,11 +59,11 @@ for movie in movies:
     try:
         # Extract title
         title_elem = movie.find_element(By.CSS_SELECTOR, "h3.ipc-title__text")
-        title = title_elem.text.split('\n')[0].strip()  # Get only the title part
+        title = title_elem.text.split('\n')[0].strip()  
         
-        # Extract rating - updated selector
+        # Extract rating 
         rating_elem = movie.find_element(By.CSS_SELECTOR, "span.ipc-rating-star--rating")
-        rating = rating_elem.text.split('\n')[0].strip()  # Get only the rating part
+        rating = rating_elem.text.split('\n')[0].strip()  
 
         data.append({
             "Movie Name": title,
